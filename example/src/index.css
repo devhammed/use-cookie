@@ -1,5 +1,14 @@
-/* body {
+*:focus {
+  outline: none;
+}
+
+body {
+  background-color: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 95vh;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-} */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

@@ -1,23 +1,60 @@
-import * as React from 'react';
+import { useState } from 'react'
 
-export const useMyHook = () => {
-  let [{
-    counter
-  }, setState] = React.useState<{
-    counter: number;
-  }>({
-    counter: 0
-  });
-
-  React.useEffect(() => {
-    let interval = window.setInterval(() => {
-      counter++;
-      setState({counter})
-    }, 1000)
-    return () => {
-      window.clearInterval(interval);
-    };
-  }, []);
-
-  return counter;
-};
+export default function useCookie (
+  key: string,
+  defaultValue?: any
+): [any, (value: any, options?: object) => void, () => void] {
+  const [value, setValue] = useState(() => {
+    let match = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)')
+    let value = match ? match[2] : defaultValue
+    try {
+      value = JSON.parse(value)
+    } catch (_) {}
+    return value
+  })
+  const setCookie = (value: any, options?: object): void => {
+    let cookieOptions = {
+      expires: 0,
+      domain: '',
+      path: '',
+      secure: false,
+      httpOnly: false,
+      maxAge: 0,
+      sameSite: '',
+      ...options
+    }
+    setValue(value)
+    if (Array.isArray(value) || Object.prototype.toString.call(value) === '[object Object]') {
+      value = JSON.stringify(value)
+    }
+    let cookie: string = `${key}=${value}`
+    if (cookieOptions.expires) {
+      let date: Date = new Date()
+      date.setTime(date.getTime() + 1000 * cookieOptions.expires)
+      cookie += `; Expires=${date.toUTCString()}`
+    }
+    if (cookieOptions.path) {
+      cookie += `; Path=${cookieOptions.path}`
+    }
+    if (cookieOptions.domain) {
+      cookie += `; Domain=${cookieOptions.domain}`
+    }
+    if (cookieOptions.secure) {
+      cookie += '; Secure'
+    }
+    if (cookieOptions.httpOnly) {
+      cookie += '; HttpOnly'
+    }
+    if (cookieOptions.maxAge) {
+      cookie += `; Max-Age=${cookieOptions.maxAge}`
+    }
+    if (cookieOptions.sameSite) {
+      cookie += `; SameSite=${cookieOptions.sameSite}`
+    }
+    document.cookie = cookie
+  }
+  const clearCookie = (): void => setCookie('', {
+    expires: -3600
+  })
+  return [value, setCookie, clearCookie]
+}

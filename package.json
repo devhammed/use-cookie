@@ -1,10 +1,10 @@
 {
   "name": "@devhammed/use-cookie",
-  "version": "1.0.0",
-  "description": "Get, Set, Update and Delete Cookies using React Hooks.",
+  "version": "1.0.1",
+  "description": "Get, Set, Update and Delete Cookie using React Hook.",
   "author": "devHammed",
   "license": "MIT",
-  "repository": "/devhammed/use-cookie",
+  "repository": "devhammed/use-cookie",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",

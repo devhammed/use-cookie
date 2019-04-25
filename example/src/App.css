@@ -1,0 +1,34 @@
+.App {
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
+}
+
+.App__Input {
+  border: 1px solid palevioletred;
+  border-bottom: 5px solid palevioletred;
+  border-radius: 5px;
+  margin-right: 5px;
+  padding: 10px;
+}
+
+.App__Button {
+  background-color: palevioletred;
+  border: 4px solid palevioletred;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px;
+}
+
+.App__Links {
+  font-size: 13px;
+  margin-top: 50px;
+}
+
+.App__Links a {
+  color: palevioletred;
+}
+
+.App__Input:focus {
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.08);
+}
