@@ -1,8 +1,8 @@
 {
-  "short_name": "@devhammed/use-cookie",
-  "name": "@devhammed/use-cookie",
+  "short_name": "@devhammed/use-cookie Hook",
+  "name": "@devhammed/use-cookie Hook",
   "start_url": "./index.html",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#d87093",
+  "background_color": "#fafafa"
 }
