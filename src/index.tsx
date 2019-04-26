@@ -9,7 +9,7 @@ export default function useCookie (
     let value = match ? match[2] : defaultValue
     try {
       value = JSON.parse(value)
-    } catch (_) {}
+    } catch (_) { }
     return value
   })
 
@@ -56,9 +56,10 @@ export default function useCookie (
     document.cookie = cookie
   }
 
-  const clearCookie = (): void => setCookie('', {
-    expires: -3600
-  })
+  const clearCookie = (): void => {
+    setCookie('', { expires: -3600 })
+    setValue(defaultValue)
+  }
 
   return [value, setCookie, clearCookie]
 }
