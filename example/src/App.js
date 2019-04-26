@@ -28,6 +28,10 @@ const App = () => {
         <span>
           <a href='https://github.com/devhammed/use-cookie'>View on GitHub</a>
         </span>
+        {` | `}
+        <span>
+          <a href='https://www.npmjs.com/package/@devhammed/use-cookie'>View on NPM</a>
+        </span>
       </p>
     </section>
   )
