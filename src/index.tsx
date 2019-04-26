@@ -12,6 +12,7 @@ export default function useCookie (
     } catch (_) {}
     return value
   })
+
   const setCookie = (value: any, options?: object): void => {
     let cookieOptions = {
       expires: 0,
@@ -24,6 +25,7 @@ export default function useCookie (
       ...options
     }
     setValue(value)
+    // if value is an array or a plain object, convert to JSON
     if (Array.isArray(value) || Object.prototype.toString.call(value) === '[object Object]') {
       value = JSON.stringify(value)
     }
@@ -39,22 +41,24 @@ export default function useCookie (
     if (cookieOptions.domain) {
       cookie += `; Domain=${cookieOptions.domain}`
     }
-    if (cookieOptions.secure) {
-      cookie += '; Secure'
-    }
-    if (cookieOptions.httpOnly) {
-      cookie += '; HttpOnly'
-    }
     if (cookieOptions.maxAge) {
       cookie += `; Max-Age=${cookieOptions.maxAge}`
     }
     if (cookieOptions.sameSite) {
       cookie += `; SameSite=${cookieOptions.sameSite}`
     }
+    if (cookieOptions.secure) {
+      cookie += '; Secure'
+    }
+    if (cookieOptions.httpOnly) {
+      cookie += '; HttpOnly'
+    }
     document.cookie = cookie
   }
+
   const clearCookie = (): void => setCookie('', {
     expires: -3600
   })
+
   return [value, setCookie, clearCookie]
 }
