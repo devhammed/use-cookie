@@ -5,16 +5,16 @@
 }
 
 .App__Input {
-  border: 1px solid palevioletred;
-  border-bottom: 5px solid palevioletred;
+  border: 1px solid #d87093;
+  border-bottom: 5px solid #d87093;
   border-radius: 5px;
-  margin-right: 5px;
+  margin: 5px;
   padding: 10px;
 }
 
 .App__Button {
-  background-color: palevioletred;
-  border: 4px solid palevioletred;
+  background-color: #d87093;
+  border: 4px solid #d87093;
   border-radius: 5px;
   color: #fff;
   padding: 10px;
@@ -26,7 +26,7 @@
 }
 
 .App__Links a {
-  color: palevioletred;
+  color: #d87093;
 }
 
 .App__Input:focus {
