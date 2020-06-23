@@ -1,16 +1,16 @@
 import { useState } from 'react'
 
-export default function useCookie (
+export default function useCookie<T = any>(
   key: string,
   defaultValue?: any
-): [any, (value: any, options?: object) => void, () => void] {
+): [T, (value: any, options?: object) => void, () => void] {
   const [value, setValue] = useState(() => {
     let match = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)')
     let value = match ? match[2] : defaultValue
     try {
       value = JSON.parse(value)
     } catch (_) { }
-    return value
+    return value as T
   })
 
   const setCookie = (value: any, options?: object): void => {
