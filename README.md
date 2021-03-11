@@ -2,7 +2,7 @@
 
 > Get, Set, Update and Delete Cookie using React Hooks.
 
-[![NPM](https://img.shields.io/npm/v/@devhammed/use-cookie.svg)](https://www.npmjs.com/package/@devhammed/use-cookie) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/@devhammed/use-cookie.svg)](https://www.npmjs.com/package/@devhammed/use-cookie) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Made in Nigeria](https://img.shields.io/badge/made%20in-nigeria-008751.svg?style=flat-square)](https://github.com/acekyd/made-in-nigeria)
 
 ## Install
 
